@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
+import Snippet from '../views/Snippet.vue';
 
 const routes = [
   {
@@ -9,8 +10,8 @@ const routes = [
   },
   {
     path: '/:slug',
-    name: 'Document',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Snippet.vue')
+    name: 'Snippet',
+    component: Snippet
   }
 ];
 
