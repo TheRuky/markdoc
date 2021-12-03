@@ -9,7 +9,7 @@
 
 <script setup>
 import {useRoute} from 'vue-router';
-import {onBeforeMount, ref} from 'vue';
+import {onBeforeMount, onMounted, ref} from 'vue';
 import { useHead } from '@vueuse/head';
 import DOMPurify from 'dompurify';
 import { marked } from 'marked';
@@ -18,19 +18,21 @@ import { fetchSnippet } from '../services/snippet';
 const route = useRoute();
 const slug = ref(route.params.slug);
 const html = ref('');
+const title = ref('');
 
 onBeforeMount(async () => {
   const { data, error } = await fetchSnippet(slug.value);
 
   const [ snippet ] = data;
 
-  console.log(snippet);
-
+  title.value = snippet.title;
   html.value = DOMPurify.sanitize(marked(snippet.markdown));
 });
 
-useHead({
-  title: slug.value,
+onMounted(() => {
+  useHead({
+    title: title.value,
+  });
 });
 
 </script>
