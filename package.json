@@ -1,0 +1,28 @@
+{
+  "name": "markdoc.me",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^1.28.2",
+    "@vueuse/head": "^0.7.2",
+    "core-js": "^3.6.5",
+    "dompurify": "^2.3.3",
+    "marked": "^4.0.5",
+    "nanoid": "^3.1.30",
+    "slugify": "^1.6.3",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "sass": "^1.44.0",
+    "sass-loader": "10"
+  }
+}
