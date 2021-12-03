@@ -28,6 +28,10 @@ onBeforeMount(async () => {
   //   title: snippet.title,
   // });
 
+ document.head
+     .querySelector('meta[property="og:image"]')
+     .setAttribute('content', 'https://www.pngkey.com/png/detail/892-8928473_document-logo-rsum.png');
+
   document.title = snippet.title;
 
   html.value = DOMPurify.sanitize(marked(snippet.markdown));
