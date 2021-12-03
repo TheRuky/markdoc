@@ -10,6 +10,7 @@
 <script setup>
 import {useRoute} from 'vue-router';
 import {onBeforeMount, ref} from 'vue';
+import { useHead } from '@vueuse/head';
 import DOMPurify from 'dompurify';
 import { marked } from 'marked';
 import { fetchSnippet } from '../services/snippet';
@@ -22,6 +23,10 @@ onBeforeMount(async () => {
   const { data, error } = await fetchSnippet(slug.value);
 
   const [ snippet ] = data;
+
+  useHead({
+    title: snippet.title,
+  });
 
   console.log(snippet);
 
