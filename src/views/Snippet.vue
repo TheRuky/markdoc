@@ -24,12 +24,13 @@ onBeforeMount(async () => {
 
   const [ snippet ] = data;
 
-  useHead({
-    title: snippet.title,
-  });
-
   console.log(snippet);
 
   html.value = DOMPurify.sanitize(marked(snippet.markdown));
 });
+
+useHead({
+  title: slug.value,
+});
+
 </script>
